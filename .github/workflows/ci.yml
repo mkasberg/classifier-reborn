@@ -23,7 +23,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby_version: ["2.7", "3.0", "3.1", "jruby-9.3.4.0"]
+        ruby_version: ["2.7", "3.0", "3.1", "jruby-9.3.6.0"]
         linalg_gem: ["none", "gsl", "numo"]
         # We use `include` to assign the correct Gemfile for each ruby_version
         include:
@@ -33,7 +33,7 @@ jobs:
             gemfile: Gemfile
           - ruby_version: "3.1"
             gemfile: Gemfile
-          - ruby_version: "jruby-9.3.4.0"
+          - ruby_version: "jruby-9.3.6.0"
             gemfile: Gemfile-jruby
         exclude:
           # Ruby 3.0 does not work with the latest released gsl gem
@@ -44,11 +44,11 @@ jobs:
           # https://github.com/SciRuby/rb-gsl/issues/67
           - ruby_version: "3.1"
             linalg_gem: "gsl"
-          # jruby-9.3.4.0 doesn't easily build the gsl gem on a GitHub worker. Skipping for now.
-          - ruby_version: "jruby-9.3.4.0"
+          # jruby-9.3.6.0 doesn't easily build the gsl gem on a GitHub worker. Skipping for now.
+          - ruby_version: "jruby-9.3.6.0"
             linalg_gem: "gsl"
-          # jruby-9.3.4.0 doesn't easily build the numo gems on a GitHub worker. Skipping for now.
-          - ruby_version: "jruby-9.3.4.0"
+          # jruby-9.3.6.0 doesn't easily build the numo gems on a GitHub worker. Skipping for now.
+          - ruby_version: "jruby-9.3.6.0"
             linalg_gem: "numo"
     steps:
       - name: Checkout Repository
